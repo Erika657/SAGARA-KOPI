@@ -162,7 +162,7 @@ body {
 
 /* hero section */
 .hero {
-  min-height: 100vh;
+  min-height: 130vh;
   display: flex;
   align-items: center;
   background-image: url("img/bg-coffe-jpg.jpg");
@@ -188,7 +188,10 @@ body {
 
 .hero .content {
   padding: 1.4rem 7%;
-  max-width: 60rem;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 50px;
 }
 
 .hero .content h1 {
