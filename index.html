@@ -32,7 +32,7 @@
 
   <body>
 <!-- navbar start -->
-    <nav class="navbar">
+ <nav class="navbar" x-data>
       <a href="#" class="navbar-logo">SAGARA <span>KOPI</span>.</a>
 
       <div class="navbar-nav">
@@ -45,11 +45,16 @@
 
       <div class="navbar-extra">
         <a href="#" id="search-button"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart-button"
-          ><i data-feather="shopping-cart"></i
-        ></a>
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span
+            class="quantity-badge"
+            x-show="$store.cart.quantity"
+            x-text="$store.cart.quantity"
+          ></span>
+        </a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-      </div>
+    </div>
       <!-- search form start -->
       <div class="search-form">
         <input type="search" id="search-box" placeholder="search here..." />
@@ -205,7 +210,7 @@
         <template x-for="(item, index) in items" x-key="index">
         <div class="product-card">
             <div class="product-icons">
-            <a href="#">
+            <a href="#" @click.prevent="$store.cart.add(item)">
                 <svg
                   width="24"
                   height="24"
@@ -295,7 +300,7 @@
                 </svg>
             </div>
             <div class="product-price">
-                <span x-text="rupiah(item.price)" class="no-underline"></span>
+                <span x-text="rupiah(item.price)"></span>
               </div>
             </div>
             </div>
